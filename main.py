@@ -9,6 +9,10 @@ def translate(word):
 
     if word in data:
         return data[word]
+    elif word.title() in data:
+        return data[word.title()]
+    elif word.upper() in data:
+        return data[word.upper()]
     elif len(temp) > 0:
         yes_or_no = input(f"Did you mean {temp[0]}? Type Y for yes, N for no.")
         if yes_or_no == "Y":
@@ -24,5 +28,5 @@ def translate(word):
 while True:
     word = input("Enter the word:")
 
-    for item in translate(word):
+    for item in translate(word.lower()):
         print(item)
