@@ -4,15 +4,15 @@ from difflib import get_close_matches
 data = json.load(open("data.json"))
 
 
-def translate(word):
-    temp = get_close_matches(word, data, cutoff=0.8)
+def translate(w):
+    temp = get_close_matches(w, data, cutoff=0.8)
 
-    if word in data:
-        return data[word]
-    elif word.title() in data:
-        return data[word.title()]
-    elif word.upper() in data:
-        return data[word.upper()]
+    if w in data:
+        return data[w]
+    elif w.title() in data:
+        return data[w.title()]
+    elif w.upper() in data:
+        return data[w.upper()]
     elif len(temp) > 0:
         yes_or_no = input(f"Did you mean {temp[0]}? Type Y for yes, N for no.")
         if yes_or_no == "Y":
